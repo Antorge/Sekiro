@@ -1,0 +1,111 @@
+/* Estilos generales */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('fondo_sekiro.jpg'); /* Ajusta la ruta según tu estructura */
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #e2e2e2;
+    animation: fadeIn 0.2s ease-in;
+}
+
+section {
+    backdrop-filter:blur(10px);
+    padding: 2em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid #d4af37;
+    animation: slideIn 0.6s ease-in-out;
+
+}
+
+/* Encabezado */
+h3 {
+    text-align: center;
+    color: #d4af37;
+    margin-bottom: 1em;
+    font-family: 'SekiroFont', sans-serif; /* Asegúrate de tener esta fuente */
+    animation: slideIn 0.6s ease-in-out;
+}
+
+/* Instrucciones */
+p {
+    text-align: center;
+    color: #e2e2e2;
+    margin-bottom: 1.5em;
+    animation: slideIn 0.6s ease-in-out;
+}
+
+/* Formularios */
+form div {
+    margin-bottom: 1em;
+    animation: slideIn 0.6s ease-in-out;
+}
+
+label {
+    display: block;
+    color: #e2e2e2;
+    margin-bottom: 0.5em;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: calc(100% - 1em);
+    padding: 0.5em;
+    border: 1px solid #d4af37;
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: #1c1c1c;
+    color: #e2e2e2;
+    transition: border-color 0.3s;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #b89628;
+    outline: none;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 0.75em;
+    background-color: #d4af37;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    font-size: 1em;
+    cursor: pointer;
+    font-family: 'SekiroFont', sans-serif; /* Asegúrate de tener esta fuente */
+    transition: background-color 0.3s, transform 0.3s;
+    animation: slideIn 0.6s ease-in-out;
+}
+
+input[type="submit"]:hover {
+    background-color: #b89628;
+    transform: translateY(-5px);
+}
+
+/* Mensaje de error */
+#mensajeError {
+    color: red;
+    text-align: center;
+    margin-top: 1em;
+    font-size: 0.9em;
+    animation: fadeIn 2.5s ease-in-out;
+}
