@@ -2,12 +2,13 @@ const express = require('express');
 const router = express.Router();
 const loadAppHtml = require('../utils/loadAppHtml');
 const authMiddleware = require('../controllers/middlewares/authMiddleware'); // Importa el middleware
+const { dashboard } = require('../controllers/backend/dashboardController');
+const { ingresarCliente, listarClientes, editarCliente, guardarEdicion } = require('../controllers/backend/proveedorController');
+
 
 const tipo_plantilla = 'backend';
 
-router.get('/dashboard', authMiddleware, (req, res) => {
-    loadAppHtml(tipo_plantilla, 'dashboard', `${process.env.APP_NAME}: Dashboard`, 'Bienvenido al panel de administración', res);
-});
+router.get('/dashboard', authMiddleware, dashboard);
 
 
 router.get('/modulo-usuarios', authMiddleware, (req, res) => {
@@ -24,5 +25,12 @@ router.get('/modulo-proveedores', authMiddleware, (req, res) => {
 router.get('/modulo-objetos', authMiddleware, (req, res) => {
     loadAppHtml(tipo_plantilla, 'objetos', `${process.env.APP_NAME}: Módulo Objetos`, 'Gestión de Proveedores', res);
 });
+
+
+router.get('/modulo-ingresar-clientes', authMiddleware, ingresarCliente);
+router.get('/modulo-listar-clientes', authMiddleware, listarClientes);
+router.get('/modulo-editar-cliente/:id', authMiddleware, editarCliente);
+router.post('/modulo-editar-cliente', authMiddleware, guardarEdicion);
+
 
 module.exports = router;

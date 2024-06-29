@@ -1,22 +1,21 @@
-/* Resetear márgenes y rellenos */
+
 body, ul {
     padding: 0;
     margin: 0;
 }
 
-/* Estilos generales */
 body {
     font-family: 'Times New Roman', Times, serif;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     margin: 0;
-    background-image: url('fondo_sekiro.jpg'); /* Reemplaza con la ruta de tu imagen de Sekiro */
+    background-image: url('fondo_sekiro.jpg'); 
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Para que la imagen de fondo no se desplace */
-    background-repeat: no-repeat; /* Evitar que la imagen se repita */
-    color: #fff; /* Color de texto blanco */
+    background-attachment: fixed; 
+    background-repeat: no-repeat; 
+    color: #fff; 
 }
 
 .container {
@@ -24,17 +23,15 @@ body {
     margin: 0 auto;
 }
 
-/* Estilo para la barra de navegación */
 nav {
-    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente oscuro */
+    background-color: rgba(0, 0, 0, 0.7); 
     width: 100%;
     list-style: none;
     text-align: center;
     display: flex;
     justify-content: center;
-    position: sticky;
     top: 0;
-    z-index: 1000px; /* Para asegurarse de que esté encima de otros elementos */
+    z-index: 1000px; 
 }
 
 nav ul {
@@ -60,12 +57,12 @@ nav ul li a {
     color: #fff;
     width: 110px;
     height: 500px;
-    display: flex; /* Cambio de block a flex */
-    align-items: flex-end; /* Alinea el texto en la parte inferior */
-    justify-content: center; /* Centra el texto horizontalmente */
+    display: flex;
+    align-items: flex-end; 
+    justify-content: center; 
     position: relative;
     overflow: hidden;
-    z-index: 2; /* Asegura que el texto esté encima de la superposición oscura */
+    z-index: 2; 
 }
 
 nav ul li a:before {
@@ -75,19 +72,19 @@ nav ul li a:before {
     left: 0;
     width: 200px;
     height: 3px;
-    background-color: #ffbb33; /* Color de la línea subrayada */
-    transform: scaleX(0); /* Inicialmente invisible */
+    background-color: #ffbb33; 
+    transform: scaleX(0); 
     transform-origin: right;
-    transition: transform 0.7s ease-out;
+    transition: transform 0.6s ease-out; 
 }
 
 nav ul li a:hover:before {
-    transform: scaleX(1); /* Muestra la línea al pasar el ratón */
+    transform: scaleX(1);
     transform-origin: left;
-    transition: background-color 0.6s ease-out;
+    transition: background-color 10s ease-out;
+    transition: transform 0.5s ease-out;
 }
 
-/* Superposición oscura inicial */
 nav ul li::before {
     content: '';
     position: absolute;
@@ -95,18 +92,15 @@ nav ul li::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Oscurece las imágenes inicialmente */
+    background-color: rgba(0, 0, 0, 0.5); 
     transition: background-color 0.6s ease-out;
-    z-index: 1; /* Asegura que la superposición esté encima de la imagen pero debajo del texto */
+    z-index: 1; 
 }
 
-/* Quitar superposición oscura al pasar el ratón */
 nav ul li:hover::before {
-    background-color: rgba(0, 0, 0, 0); /* Elimina la oscuridad al pasar el ratón */
+    background-color: rgba(0, 0, 0, 0);
     transition: background-color 0.6s ease-out;
 }
-
-/* Estilo para el contenido principal */
 main {
     flex: 1;
     display: flex;
@@ -114,18 +108,20 @@ main {
     align-items: center;
     text-align: center;
     padding: 20px;
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo negro con 70% de opacidad */
+    z-index: 900; /* Asegura que main tenga menor prioridad que nav */
+    border: 2px solid black; /* Agrega un borde de 2px de grosor y color negro */
 }
 
-/* Estilo para el pie de página */
+
 footer {
     width: 100%;
-    background-color: #ffbb33; /* Color de fondo amarillo como en Sekiro */
-    color: #1c1c1c; /* Texto oscuro sobre fondo amarillo */
+    background-color: #ffbb33;
+    color: #1c1c1c;
     padding: 20px 0;
     text-align: center;
 }
 
-/* Estilos específicos para las páginas */
 #pagina01, #pagina02, #pagina03, #pagina04, #pagina05 {
     background-size: cover;
     background-position: center;
@@ -135,7 +131,7 @@ footer {
     position: relative;
     overflow: hidden;
     transition: transform 0.2s ease-out, flex 0.2s ease-out;
-    margin: 4px; /* Elimina el margen entre las imágenes */
+    margin: 4px; 
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -143,47 +139,47 @@ footer {
     background-color: transparent; 
 }
 
-/* Efecto de escala y agrandamiento al pasar el ratón */
+
 #pagina01:hover, #pagina02:hover, #pagina03:hover, #pagina04:hover, #pagina05:hover{
-    transform: scale(1.07); /* Escala al 107% del tamaño original al hacer hover */
-    flex-grow: 2; /* Aumenta el tamaño del elemento al hacer hover */
-    z-index: 1; /* Asegura que el elemento en escala esté encima */
+    transform: scale(1.07); 
+    flex-grow: 2; 
+    z-index: 1; 
     background-color: transparent; 
 }
 
-/* Reducción del tamaño de las imágenes al no estar en hover */
+
 #pagina01:not(:hover), #pagina02:not(:hover), #pagina03:not(:hover), #pagina04:not(:hover), #pagina05:not(:hover) {
-    flex-grow: 1; /* Reduce el tamaño de los elementos al no estar en hover */
-    transition: flex 0.4s ease-out, transform 0.4s ease-out; /* Añade una transición suave */
+    flex-grow: 1; 
+    transition: flex 0.4s ease-out, transform 0.4s ease-out; 
 }
 
 /* Estilo para el contenedor de las imágenes */
 .container-imagenes {
     display: flex;
-    justify-content: space-around; /* Distribuye las imágenes uniformemente */
+    justify-content: space-around; 
     align-items: center;
-    flex-wrap: wrap; /* Permite que las imágenes se ajusten automáticamente */
-    margin-top: 20px; /* Espacio opcional entre el nav y las imágenes */
+    flex-wrap: wrap;
+    margin-top: 20px; 
 }
 
-/* Estilo para el enlace "Cerrar sesión" */
 #cerrar-sesion {
-    background-color: #d6974f; /* Amarillo dorado oscuro */
-    color: #000; /* Texto negro */
+    background-color: #d6974f; 
+    color: #000; 
     padding: 10px 20px;
     border-radius: 20px;
-    text-decoration: none; /* Quitar la línea subrayada */
+    text-decoration: none; 
     font-weight: bold;
     display: inline-block;
     transition: all 0.3s ease;
-    position: absolute; /* Opcional: para ajustar posición */
-    bottom: 20px; /* Opcional: ajustar posición vertical */
-    right: 20px; /* Opcional: ajustar posición horizontal */
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1100;
 }
 
 #cerrar-sesion:hover {
-    background-color: #be7b23; /* Cambio de color al pasar el ratón */
-    transform: scale(1.1); /* Aumentar tamaño al 110% */  
+    background-color: #be7b23; 
+    transform: scale(1.1);  
 }
 
 #cerrar1 {
@@ -191,7 +187,6 @@ footer {
     text-decoration: none;  
 }
 
-/* Estilos específicos para las páginas */
 #pagina01 {
     background-image: url('12.jpg');
 }

@@ -9,10 +9,6 @@ router.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, '../views/backend/auth/login.html'));
 });
 
-// Ruta para mostrar el formulario de registro
-router.get('/register', (req, res) => {
-    res.sendFile(path.join(__dirname, '../views/backend/auth/register.html'));
-});
 
 
 router.post('/login', authController.login);

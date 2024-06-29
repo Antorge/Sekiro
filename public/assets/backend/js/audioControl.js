@@ -30,7 +30,7 @@ function applyAudioControl() {
     document.addEventListener('click', function playAudioOnClick() {
         if (audio.paused && storedState !== 'paused') {
             audio.play().catch(error => {
-                console.log('Reproduccion autom谩tica bloqueada por el navegador:', error);
+                console.log('Reproduccion automatica bloqueada por el navegador:', error);
             });
             localStorage.setItem('audioState', 'playing');
             control.textContent = '🔊';

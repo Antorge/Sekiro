@@ -1,0 +1,35 @@
+<form id="formUpdate">
+    <input type="hidden" id="id_jefe" name="id_jefe" value="{{ id_jefe }}">
+    
+    <div><label for="nombre">Nombre</label></div>
+    <div><input type="text" id="nombre" name="nombre" value="{{ nombre }}" required></div>
+    
+    <div><label for="fase_combate">Fase de Combate</label></div>
+    <div><input type="text" id="fase_combate" name="fase_combate" value="{{ fase_combate }}" required></div>
+    
+    <div><label for="debilidades">Debilidades</label></div>
+    <div><input type="text" id="debilidades" name="debilidades" value="{{ debilidades }}" required></div>
+    
+    <div><label for="habilidades_movimientos">Habilidades y Movimientos</label></div>
+    <div><input type="text" id="habilidades_movimientos" name="habilidades_movimientos" value="{{ habilidades_movimientos }}" required></div>
+    
+    <div><label for="tipo_jefe">Tipo de Jefe</label></div>
+    <div><input type="text" id="tipo_jefe" name="tipo_jefe" value="{{ tipo_jefe }}" required></div>
+    
+    <div><label for="recompensas">Recompensas</label></div>
+    <div><input type="text" id="recompensas" name="recompensas" value="{{ recompensas }}" required></div>
+    
+    <div><label for="dificultad">Dificultad</label></div>
+    <div><input type="text" id="dificultad" name="dificultad" value="{{ dificultad }}" required></div>
+    
+    <div><label for="historia">Historia</label></div>
+    <div><textarea id="historia" name="historia" required>{{ historia }}</textarea></div>
+    
+    <div><label for="consejos_combate">Consejos de Combate</label></div>
+    <div><textarea id="consejos_combate" name="consejos_combate" required>{{ consejos_combate }}</textarea></div>
+    
+    <div>
+        <input type="submit" id="guardar" name="guardar" value="Guardar">
+    </div>
+</form>
+<div id="mensajeError"></div>

@@ -7,6 +7,7 @@ const bodyParser = require('body-parser'); // Importar body-parser
 const flash = require('connect-flash');
 
 // Rutas
+const listarClientes = require('./controllers/backend/proveedorController');
 const frontendRoutes = require('./routes/frontendRoutes');
 const backendRoutes = require('./routes/backendRoutes');
 const authRoutes = require('./routes/authRoutes'); // Importar el archivo de rutas de autenticación
