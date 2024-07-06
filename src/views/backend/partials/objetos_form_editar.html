@@ -1,0 +1,20 @@
+<form id="formUpdate_producto">
+    <input type="hidden" id="ID" name="ID" value="{{ ID }}">
+    
+    <div><label for="nombre">Nombre</label></div>
+    <div><input type="text" id="nombre" name="nombre" value="{{ nombre }}" required></div>
+    
+    <div><label for="descripcion">Descripción</label></div>
+    <div><input type="text" id="descripcion" name="descripcion" value="{{ descripcion }}" required></div>
+    
+    <div><label for="efecto">Efecto</label></div>
+    <div><input type="text" id="efecto" name="efecto" value="{{ efecto }}" required></div>
+    
+    <div><label for="precio">Precio</label></div>
+    <div><input type="number" id="precio" name="precio" value="{{ precio }}" required></div>
+    
+    <div>
+        <input type="submit" id="guardar" name="guardar" value="Guardar">
+    </div>
+</form>
+<div id="mensajeError"></div>

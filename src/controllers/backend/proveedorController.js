@@ -55,13 +55,13 @@ async function listarClientes(req, res) {
                     `<td> ${jefe.historia} </td>` +
                     `<td> ${jefe.consejos_combate} </td>` +
                     `<td><a class="btn btn-primary" href='/sitio-admin/modulo-editar-cliente/${jefe.id_jefe}'> Editar </a> </td>` +
+                    `<td><a class="btn btn-primary" href='/sitio-admin/modulo-eliminar-cliente/${jefe.id_jefe}'> Eliminar </a> </td>` +
                     `</tr>`;
             });
             html += '</table>';
         } else {
             html = '<h3>Sin Jefes</h3>';
-        }
-        
+        }       
 
         // Llama a la función para cargar la vista con los clientes listados
         loadAppHtml('backend', 'clientes_listar', `${process.env.APP_NAME}: Módulo Clientes`, html, res);
@@ -112,5 +112,33 @@ async function guardarEdicion(req, res) {
     }
 }
 
+async function saveNewCliente(req, res)
+{
+    let user = req.session.user;
+    const { id_jefe, nombre, fase_combate, debilidades, habilidades_movimientos, tipo_jefe, recompensas, dificultad, historia, consejos_combate } = req.body;
+    const jefe = new Cliente(id_jefe, nombre, fase_combate, debilidades, habilidades_movimientos, tipo_jefe, recompensas, dificultad, historia, consejos_combate);
+    const respuesta = await jefe.agregarJefe();
+    if (respuesta) {
+        req.flash('msg', 'Se ha agregado');
+        res.status(200).json({ message: `Jefe ${nombre} agregado correctamente.` });
+    } else {
+        req.flash('msg', 'No se ha podido agregar.');
+        res.status(404).json({ message: `No se pudo agregar el jefe ${nombre}.` });
+    }
+}
 
-module.exports = { ingresarCliente,  listarClientes, editarCliente, guardarEdicion};
+
+async function eliminarCliente(req, res) {
+    const jefeId = req.params.id;
+    const jefe = new Cliente(jefeId);
+    const respuesta = await jefe.eliminarJefe();
+    if (respuesta) {
+        req.flash('msg', 'Se ha eliminado');
+        res.redirect('/sitio-admin/modulo-listar-clientes'); // Redirige a la página de listar clientes
+    } else {
+        req.flash('msg', 'No se ha podido eliminar.');
+        res.status(404).json({ message: `No se pudo eliminar el jefe ${jefeId}.` });
+    }
+}
+
+module.exports = { ingresarCliente,  listarClientes, editarCliente, guardarEdicion, saveNewCliente, eliminarCliente};

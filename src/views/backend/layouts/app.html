@@ -6,6 +6,8 @@
     <title>Sekiro Guides</title>
     <link rel="stylesheet" href="/assets/backend/css/app2.css">
     <link rel="stylesheet" href="/assets/backend/css/StyleAudioButton.css">
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 </head>
 <body>
     <header>
@@ -13,8 +15,8 @@
         <div>
             <ul>
                 <!-- BEGIN Item 1-->
-                <li id = "cerrar-sesion">
-                    <a id ="cerrar1" href="/auth/logout">Cerrar Sesion</a>
+                <li id="cerrar-sesion">
+                    <a id="cerrar1" href="/auth/logout">Cerrar Sesion</a>
                 </li>
                 <!-- END Item 1-->
             </ul>
@@ -26,18 +28,22 @@
     </nav>
     <main>
         {{ main }}
+        <!-- Contenedor para mensajes de error -->
+        <div id="mensajeError"></div>
     </main>
-        <!-- Elemento de audio -->
-        <audio id="myAudio" loop>
-            <source src="/assets/backend/audio/OST.mp3" type="audio/mpeg">
-            Tu navegador no soporta la reproducción de audio.
-        </audio>
-    
-        <!-- Botón para controlar el audio -->
-        <div id="audioControl" class="audio-control">no</div>
-    
-        <!-- Incluir el archivo de script -->
-        <script src="/assets/backend/js/audioControl.js"></script>
+    <!-- Elemento de audio -->
+    <audio id="myAudio" loop>
+        <source src="/assets/backend/audio/OST.mp3" type="audio/mpeg">
+        Tu navegador no soporta la reproducción de audio.
+    </audio>
+
+    <!-- Botón para controlar el audio -->
+    <div id="audioControl" class="audio-control">no</div>
+
+    <!-- Incluir el archivo de script -->
+    <script src="/assets/backend/js/audioControl.js"></script>
     <script src="/assets/backend/js/app.js"></script>
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

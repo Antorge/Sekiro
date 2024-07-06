@@ -18,7 +18,7 @@ class Jefe {
         const db = DataBase.getInstance(); // Obtiene una instancia de la conexión a la base de datos
         try {
             // Ejemplo de consulta SQL para insertar un nuevo jefe
-            const query = 'INSERT INTO jefes (nombre, fase_combate, debilidades, habilidades_movimientos, tipo_jefe, recompensas, dificultad, historia, consejos_combate) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
+            const query = 'INSERT INTO jefes_sekiro (nombre, fase_combate, debilidades, habilidades_movimientos, tipo_jefe, recompensas, dificultad, historia, consejos_combate) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
             const params = [this.nombre, this.fase_combate, this.debilidades, this.habilidades_movimientos, this.tipo_jefe, this.recompensas, this.dificultad, this.historia, this.consejos_combate];
             const resultado = await db.ejecutarQuery(query, params);
             console.log('Jefe agregado correctamente:', resultado);
@@ -99,6 +99,30 @@ class Jefe {
             throw error;
         }
     }
+
+    async eliminarJefe() {
+        const db = DataBase.getInstance(); // Obtiene una instancia de la conexión a la base de datos
+        try {
+            const query = 'DELETE FROM jefes_sekiro WHERE id_jefe=?';
+            const resultado = await db.ejecutarQuery(query, [this.id_jefe]);
+            if (resultado.affectedRows > 0) {
+                console.log('Jefe eliminado con éxito');
+                return true;
+            } else {
+                console.log('No se encontró el jefe con el ID especificado');
+                return false;
+            }
+        } catch (error) {
+            console.error('Error al eliminar el jefe:', error);
+            throw error;
+        }
+    }
 }
+    
+
+
+
+
+    
 
 module.exports = Jefe;

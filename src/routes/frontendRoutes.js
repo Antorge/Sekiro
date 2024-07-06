@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const loadAppHtml = require('../utils/loadAppHtml');
 const authMiddleware = require('../controllers/middlewares/authMiddleware'); // Importa el middleware
+const {listarObjetos} = require('../controllers/frontend/objetosController');
+const {listarClientes} = require('../controllers/frontend/proveedorController');
 
 const tipo_plantilla = 'frontend';
 
@@ -22,7 +24,11 @@ router.get('/proveedores', (req, res) => {
 });
 router.get('/objetos',(req, res) => {
     loadAppHtml(tipo_plantilla, 'objetos', `${process.env.APP_NAME}: Módulo Objetos`, 'Gestión de Proveedores', res);
+
 });
 
+
+router.get('/modulo-listar-clientes', authMiddleware, listarClientes);
+router.get('/modulo-listar-objetos', authMiddleware, listarObjetos);
 
 module.exports = router;

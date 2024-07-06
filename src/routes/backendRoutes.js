@@ -3,7 +3,7 @@ const router = express.Router();
 const loadAppHtml = require('../utils/loadAppHtml');
 const authMiddleware = require('../controllers/middlewares/authMiddleware'); // Importa el middleware
 const { dashboard } = require('../controllers/backend/dashboardController');
-const { ingresarCliente, listarClientes, editarCliente, guardarEdicion } = require('../controllers/backend/proveedorController');
+const { ingresarCliente, listarClientes, editarCliente, guardarEdicion, saveNewCliente, eliminarCliente } = require('../controllers/backend/proveedorController');
 
 
 const tipo_plantilla = 'backend';
@@ -31,6 +31,11 @@ router.get('/modulo-ingresar-clientes', authMiddleware, ingresarCliente);
 router.get('/modulo-listar-clientes', authMiddleware, listarClientes);
 router.get('/modulo-editar-cliente/:id', authMiddleware, editarCliente);
 router.post('/modulo-editar-cliente', authMiddleware, guardarEdicion);
+router.post('/modulo-ingresar-clientes', authMiddleware, saveNewCliente);
+router.get('/modulo-eliminar-cliente/:id', authMiddleware, eliminarCliente);
+router.post('/modulo-eliminar-cliente', authMiddleware, eliminarCliente);
 
 
 module.exports = router;
+
+
